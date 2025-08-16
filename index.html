@@ -1,19 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>viva el sida</title>
+    <title>Bienvenido</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem 3rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(60,60,60,0.15);
+            text-align: center;
+        }
+        h1 {
+            color: #2d3a4b;
+            margin-bottom: 0.5em;
+        }
+        p {
+            color: #555;
+            margin-bottom: 1.5em;
+        }
+        button {
+            background: #43c6ac;
+            color: #fff;
+            border: none;
+            padding: 0.8em 2em;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(67,198,172,0.15);
+        }
+        button:hover {
+            background: #2d3a4b;
+        }
+        .troll {
+            margin-top: 2em;
+            font-size: 1.2em;
+            color: #e67e22;
+            opacity: 0;
+            transition: opacity 0.7s;
+        }
+        .troll.visible {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
-    <h1>sida</h1>
-    <p>el diego es masca penes</p>
-    <button onclick="alerta()">dame click</button>
+    <div class="container">
+        <h1>Bienvenido</h1>
+        <p>Haz clic en el botón para descubrir un secreto profesional.</p>
+        <button onclick="alerta()">Dame click</button>
+        <div id="troll" class="troll"></div>
+    </div>
     <script>
-        function alerta(){
-            alert("chivo el q lea esto")
+        function alerta() {
+            const mensajes = [
+                "hola lame penes",
+                "por que chucha sigues dando click",
+                "chivo de mierdaaaaaa",
+                "estudia carajo 😂"
+            ];
+            const trollDiv = document.getElementById('troll');
+            const mensaje = mensajes[Math.floor(Math.random() * mensajes.length)];
+            trollDiv.textContent = mensaje;
+            trollDiv.classList.add('visible');
+            setTimeout(() => {
+                trollDiv.classList.remove('visible');
+            }, 3000);
         }
-        
     </script>
 </body>
 </html>
